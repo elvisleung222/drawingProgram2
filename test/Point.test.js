@@ -15,13 +15,13 @@ test('Point with negative y throws exception', () => {
 test('Point with non-single char throws exception', () => {
     expect(() => {
         point = new Point(1, 1, 'oo')
-    }).toThrow('Error: point can only contain single character');
+    }).toThrow('Error: point can only contain a single character');
 });
 
 test('Point with no char throws exception', () => {
     expect(() => {
         point = new Point(1, 1, '')
-    }).toThrow('Error: point must contain single character');
+    }).toThrow('Error: point must contain a single character');
 });
 
 test('Accepts point at (0,0)', () => {
@@ -37,3 +37,5 @@ test('Accepts point at any positive coordinate', () => {
     expect(point.y).toBe(3);
     expect(point.char).toBe('o');
 });
+
+// test getPoints()

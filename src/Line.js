@@ -6,13 +6,21 @@ class Line{
         this.isHorizontal = false;
         this.points = [];
         this._validate(x1, y1, x2, y2);
-        this._checkOrientation();
+        this._checkOrientation(x1, y1, x2, y2);
         if (this.isVertical)
             for(var y = Math.min(y1, y2); y <= Math.max(y1, y2); y++)
                 this.points.push(new Point(x1, y, char))
         else if (this.isHorizontal)
             for(var x = Math.min(x1, x2); x <= Math.max(x1, x2); x++)
                 this.points.push(new Point(x, y1, char))
+    }
+
+    length(){
+        return this.points.length - 1;
+    }
+    
+    getPoints(){
+        return this.points;
     }
 
     _validate(x1, y1, x2, y2){
@@ -30,6 +38,3 @@ class Line{
     }
 }
 module.exports = Line;
-
-l = new Line(2,5,2,3,'o')
-console.log(l.points)

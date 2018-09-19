@@ -12,9 +12,9 @@ class Point{
         if (y < 0)
             throw 'Error: y cannot be negative';
         if (char.length > 1)
-            throw 'Error: point can only contain single character';
+            throw 'Error: point can only contain a single character';
         else if (char.length < 1)
-            throw 'Error: point must contain single character';
+            throw 'Error: point must contain a single character';
         return;
     }
 
