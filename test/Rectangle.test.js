@@ -50,23 +50,23 @@ test('Rectangle with no area on Y axis throws exception', () => {
 test('Rectangle starting with negative x throws exception', () => {
     expect(() => {
         rect = new Rectangle(-2, 2, 1, 1, 'o');
-    }).toThrow('Error: x cannot be negative');
+    }).toThrow('Error: x cannot be zero or negative');
 });
 
 test('Rectangle ending with negative x throws exception', () => {
     expect(() => {
         rect = new Rectangle(2, 2, -1, 1, 'o');
-    }).toThrow('Error: x cannot be negative');
+    }).toThrow('Error: x cannot be zero or negative');
 });
 
 test('Rectangle starting with negative y throws exception', () => {
     expect(() => {
         rect = new Rectangle(1, -2, 2, 1, 'o');
-    }).toThrow('Error: y cannot be negative');
+    }).toThrow('Error: y cannot be zero or negative');
 });
 
 test('Rectangle ending with negative y throws exception', () => {
     expect(() => {
         rect = new Rectangle(2, 2, 1, -1, 'o');
-    }).toThrow('Error: y cannot be negative');
+    }).toThrow('Error: y cannot be zero or negative');
 });

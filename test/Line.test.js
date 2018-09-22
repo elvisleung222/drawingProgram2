@@ -3,25 +3,25 @@ const Line = require('../src/Line');
 test('Line with a point at negative x coordination throws exception', () => {
     expect(() => {
         line = new Line(-1, 1, 1, 1, 'o');
-    }).toThrow('Error: x cannot be negative');
+    }).toThrow('Error: x cannot be zero or negative');
 });
 
 test('Line with a point at negative x coordination throws exception', () => {
     expect(() => {
         line = new Line(1, 1, -1, 1, 'o');
-    }).toThrow('Error: x cannot be negative');
+    }).toThrow('Error: x cannot be zero or negative');
 });
 
 test('Line with a point at negative y coordination throws exception', () => {
     expect(() => {
         line = new Line(1, -1, 1, 1, 'o');
-    }).toThrow('Error: y cannot be negative');
+    }).toThrow('Error: y cannot be zero or negative');
 });
 
 test('Line with a point at negative y coordination throws exception', () => {
     expect(() => {
         line = new Line(1, 1, 1, -1, 'o');
-    }).toThrow('Error: y cannot be negative');
+    }).toThrow('Error: y cannot be zero or negative');
 });
 
 test('Line with zero length throws exception', () => {
@@ -54,14 +54,14 @@ test('Line with muti-char input throws exception', () => {
     }).toThrow('Error: point can only contain a single character');
 });
 
-test('Line length of (0,5) to (0,10) is 5', () => {
-    line = new Line(0, 5, 0, 10, 'o');
+test('Line length of (1,5) to (1,10) is 5', () => {
+    line = new Line(1, 5, 1, 10, 'o');
     expect(line.length()).toBe(5);
 });
 
-test('Line length of (0,5) to (9,5) is 5', () => {
-    line = new Line(0, 5, 9, 5, 'o');
-    expect(line.length()).toBe(9);
+test('Line length of (1,5) to (9,5) is 8', () => {
+    line = new Line(1, 5, 9, 5, 'o');
+    expect(line.length()).toBe(8);
 });
 
 test('Accepts vertical line (1,2) to (1,6)', () => {

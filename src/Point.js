@@ -6,11 +6,15 @@ class Point{
         this.char = char;
     }
 
+    getPoint(){
+        return this;
+    }
+
     _validate(x, y, char){
-        if (x < 0)
-            throw 'Error: x cannot be negative';
-        if (y < 0)
-            throw 'Error: y cannot be negative';
+        if (x < 1)
+            throw 'Error: x cannot be zero or negative';
+        if (y < 1)
+            throw 'Error: y cannot be zero or negative';
         if (char.length > 1)
             throw 'Error: point can only contain a single character';
         else if (char.length < 1)
