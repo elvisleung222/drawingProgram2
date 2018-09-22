@@ -9,6 +9,7 @@ class Rectangle{
     }
     
     getPoints(){
+        console.log(this);
         return this.topLine.getPoints().concat(
             this.bottomLine.getPoints().concat(
                 this.leftLine.getPoints().concat(

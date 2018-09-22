@@ -19,7 +19,13 @@ class DrawingProgram {
     });
     return new Promise((resolve, reject) => {
       rl.question('enter command: ', (command) => {
-        this._processCommand(command.split(' '));
+        try{
+          this._processCommand(command.split(' '));
+        }
+        catch(err){
+          console.log(err.message);
+        }
+        
         rl.close();
         resolve();
       });
@@ -50,7 +56,7 @@ class DrawingProgram {
       case 'B':
         if (cmd[2] == this.defaultChar)
           break;
-        var bucket = new Bucket(parseInt(cmd[1]), parseInt(cmd[2]), parseInt(cmd[3]), this.canvas);
+        var bucket = new Bucket(parseInt(cmd[1]), parseInt(cmd[2]), cmd[3], this.canvas);
         this.canvas.draw(bucket.getPoints());
         break;
       case 'q':
@@ -61,7 +67,7 @@ class DrawingProgram {
       default:
         console.log('Error: wrong cmd');
     }
-    if (this.canvas != null)
+    if (this.canvas != null && this.is_quit() != true)
       this.canvas.print();
   }
 }
