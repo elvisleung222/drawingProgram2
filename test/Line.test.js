@@ -3,55 +3,55 @@ const Line = require('../src/Line');
 test('Line with a point at negative x coordination throws exception', () => {
     expect(() => {
         line = new Line(-1, 1, 1, 1, 'o');
-    }).toThrow('Error: x cannot be zero or negative');
+    }).toThrow('error: x cannot be zero or negative');
 });
 
 test('Line with a point at negative x coordination throws exception', () => {
     expect(() => {
         line = new Line(1, 1, -1, 1, 'o');
-    }).toThrow('Error: x cannot be zero or negative');
+    }).toThrow('error: x cannot be zero or negative');
 });
 
 test('Line with a point at negative y coordination throws exception', () => {
     expect(() => {
         line = new Line(1, -1, 1, 1, 'o');
-    }).toThrow('Error: y cannot be zero or negative');
+    }).toThrow('error: y cannot be zero or negative');
 });
 
 test('Line with a point at negative y coordination throws exception', () => {
     expect(() => {
         line = new Line(1, 1, 1, -1, 'o');
-    }).toThrow('Error: y cannot be zero or negative');
+    }).toThrow('error: y cannot be zero or negative');
 });
 
 test('Line with zero length throws exception', () => {
     expect(() => {
         line = new Line(1, 2, 1, 2, 'o');
-    }).toThrow('Error: line length must be greater than zero');
+    }).toThrow('error: line length must be greater than zero');
 });
 
 test('Line with slope 1 > x > 0 throws exception', () => {
     expect(() => {
         line = new Line(1, 2, 3, 4, 'o');
-    }).toThrow('Error: line can only be either vertical or horizontal');
+    }).toThrow('error: line can only be either vertical or horizontal');
 });
 
 test('Line with slope 0 > x > -1 throws exception', () => {
     expect(() => {
         line = new Line(3, 4, 1, 2, 'o');
-    }).toThrow('Error: line can only be either vertical or horizontal');
+    }).toThrow('error: line can only be either vertical or horizontal');
 });
 
 test('Line with no char input throws exception', () => {
     expect(() => {
         line = new Line(1, 2, 5, 2, '');
-    }).toThrow('Error: point must contain a single character');
+    }).toThrow('error: point must contain a single character');
 });
 
 test('Line with muti-char input throws exception', () => {
     expect(() => {
         line = new Line(1, 2, 5, 2, 'ox');
-    }).toThrow('Error: point can only contain a single character');
+    }).toThrow('error: point can only contain a single character');
 });
 
 test('Line length of (1,5) to (1,10) is 5', () => {

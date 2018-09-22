@@ -12,13 +12,13 @@ class Point{
 
     _validate(x, y, char){
         if (x < 1)
-            throw 'Error: x cannot be zero or negative';
+            throw 'error: x cannot be zero or negative';
         if (y < 1)
-            throw 'Error: y cannot be zero or negative';
+            throw 'error: y cannot be zero or negative';
         if (char.length > 1)
-            throw 'Error: point can only contain a single character';
+            throw 'error: point can only contain a single character';
         else if (char.length < 1)
-            throw 'Error: point must contain a single character';
+            throw 'error: point must contain a single character';
         return;
     }
 

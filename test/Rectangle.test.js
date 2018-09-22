@@ -38,35 +38,35 @@ test('Accepts rectangle B (50,71), (51,29)', () => {
 test('Rectangle with no area on X axis throws exception', () => {
     expect(() => {
         rect = new Rectangle(8, 2, 15, 2, 'o');
-    }).toThrow('Error: line length must be greater than zero');
+    }).toThrow('error: line length must be greater than zero');
 });
 
 test('Rectangle with no area on Y axis throws exception', () => {
     expect(() => {
         rect = new Rectangle(9, 21, 9, 7, 'o');
-    }).toThrow('Error: line length must be greater than zero');
+    }).toThrow('error: line length must be greater than zero');
 });
 
 test('Rectangle starting with negative x throws exception', () => {
     expect(() => {
         rect = new Rectangle(-2, 2, 1, 1, 'o');
-    }).toThrow('Error: x cannot be zero or negative');
+    }).toThrow('error: x cannot be zero or negative');
 });
 
 test('Rectangle ending with negative x throws exception', () => {
     expect(() => {
         rect = new Rectangle(2, 2, -1, 1, 'o');
-    }).toThrow('Error: x cannot be zero or negative');
+    }).toThrow('error: x cannot be zero or negative');
 });
 
 test('Rectangle starting with negative y throws exception', () => {
     expect(() => {
         rect = new Rectangle(1, -2, 2, 1, 'o');
-    }).toThrow('Error: y cannot be zero or negative');
+    }).toThrow('error: y cannot be zero or negative');
 });
 
 test('Rectangle ending with negative y throws exception', () => {
     expect(() => {
         rect = new Rectangle(2, 2, 1, -1, 'o');
-    }).toThrow('Error: y cannot be zero or negative');
+    }).toThrow('error: y cannot be zero or negative');
 });

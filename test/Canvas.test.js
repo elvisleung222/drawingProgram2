@@ -3,13 +3,13 @@ const Canvas = require('../src/Canvas');
 test('Canvas with width less than 1 throws exception', () => {
     expect(() => {
         canvas = new Canvas(-1, 2);
-    }).toThrow('Error: width must be greater than zero');
+    }).toThrow('error: width must be greater than zero');
 });
 
 test('Canvas with height less than 1 throws exception', () => {
     expect(() => {
         canvas = new Canvas(4, -1);
-    }).toThrow('Error: height must be greater than zero');
+    }).toThrow('error: height must be greater than zero');
 });
 
 test('Accepts canvas with width 3 and height 5', () => {

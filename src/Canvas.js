@@ -8,10 +8,8 @@ class Canvas{
     }
     
     draw(points){
-        console.log(points);
         if (points.length > 0)
             for(var i=0; i < points.length; i++){
-                console.log(points[i].y-1, points[i].x-1);
                 this.canvas[parseInt(points[i].y)-1][parseInt(points[i].x)-1] = points[i].char;
             }
     }
@@ -35,9 +33,9 @@ class Canvas{
     
     _validate(width, height){
         if (width < 1)
-            throw 'Error: width must be greater than zero';
+            throw 'error: width must be greater than zero';
         if (height < 1)
-            throw 'Error: height must be greater than zero';
+            throw 'error: height must be greater than zero';
     }
     
     _generateCanvas(width, height){

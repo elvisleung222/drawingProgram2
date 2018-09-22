@@ -25,9 +25,9 @@ class Line{
 
     _validate(x1, y1, x2, y2){
         if (x1 != x2 && y1 != y2)
-            throw 'Error: line can only be either vertical or horizontal';
+            throw 'error: line can only be either vertical or horizontal';
         if (x1 == x2 && y1 == y2)
-            throw 'Error: line length must be greater than zero';
+            throw 'error: line length must be greater than zero';
     }
 
     _checkOrientation(x1, y1, x2, y2){

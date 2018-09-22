@@ -61,11 +61,11 @@ class DrawingProgram {
         break;
       case 'q':
       case 'Q':
-        console.log('Quit drawing program.');
+        console.log('quit drawing program.');
         this.quit = true;
         break;
       default:
-        console.log('Error: wrong cmd');
+        console.log('error: wrong cmd');
     }
     if (this.canvas != null && this.is_quit() != true)
       this.canvas.print();

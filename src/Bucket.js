@@ -19,15 +19,14 @@ class Bucket{
     }
     
     _validate(x, y, canvas){
-        console.log(x,canvas.height)
         if (y < 1)
-            throw 'Error: y cannot be zero negative';
+            throw 'error: y cannot be zero negative';
         if (x < 1)
-            throw 'Error: x cannot be zero negative';
+            throw 'error: x cannot be zero negative';
         if (x > canvas.width)
-            throw 'Error: x is out of the range of Canvas';
+            throw 'error: x is out of the range of Canvas';
         if (y > canvas.height)
-            throw 'Error: y is out of the range of Canvas';
+            throw 'error: y is out of the range of Canvas';
     }
     
     _fillNeighbors(x,y){
