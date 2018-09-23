@@ -71,12 +71,5 @@ class DrawingProgram {
       this.canvas.print();
   }
 }
+module.exports = DrawingProgram;
 
-async function main() {
-  var dp = new DrawingProgram();
-  while(!dp.is_quit()){
-    await dp.commandInput();
-  }
-}
-
-main();
