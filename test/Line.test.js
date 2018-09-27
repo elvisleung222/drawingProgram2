@@ -42,16 +42,16 @@ test('Line with slope 0 > x > -1 throws exception', () => {
     }).toThrow('error: line can only be either vertical or horizontal');
 });
 
-test('Line with no char input throws exception', () => {
+test('Line with no colour input throws exception', () => {
     expect(() => {
         line = new Line(1, 2, 5, 2, '');
-    }).toThrow('error: point must contain a single character');
+    }).toThrow('error: point must contain a single colouracter');
 });
 
-test('Line with muti-char input throws exception', () => {
+test('Line with muti-colour input throws exception', () => {
     expect(() => {
         line = new Line(1, 2, 5, 2, 'ox');
-    }).toThrow('error: point can only contain a single character');
+    }).toThrow('error: point can only contain a single colouracter');
 });
 
 test('Line length of (1,5) to (1,10) is 5', () => {
@@ -73,7 +73,7 @@ test('Accepts vertical line (1,2) to (1,6)', () => {
     line.points.forEach((point) => {
         expect(point.x).toBe(1);
         expect(point.y).toBe(y);
-        expect(point.char).toBe('o');
+        expect(point.colour).toBe('o');
         y++;
     });
 });
@@ -87,7 +87,7 @@ test('Accepts horizontal line (9,5) to (28,5)', () => {
     line.points.forEach((point) => {
         expect(point.x).toBe(x);
         expect(point.y).toBe(5);
-        expect(point.char).toBe('o');
+        expect(point.colour).toBe('o');
         x++;
     });
 });

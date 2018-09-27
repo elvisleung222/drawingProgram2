@@ -1,4 +1,5 @@
 const Canvas = require('../src/Canvas');
+const Line = require('../src/Line');
 
 test('Canvas with width less than 1 throws exception', () => {
     expect(() => {
@@ -30,4 +31,21 @@ test('Accepts canvas with width 1 and height 1', () => {
     expect(1).toBe(canvas.width);
     expect(1).toBe(canvas.height);
     expect([ [ ' ' ] ]).toEqual(canvas.canvas);
+});
+
+test('Draws points on canvas correctly', () => {
+    const canvas = new Canvas(10, 10);
+    const testPoints = [
+        { x: 1, y: 6, colour: 'o' },
+        { x: 2, y: 6, colour: 'o' },
+        { x: 3, y: 6, colour: 'o' },
+        
+    ]
+    expect(canvas.canvas[5][0]).toEqual(' ');
+    expect(canvas.canvas[5][1]).toEqual(' ');
+    expect(canvas.canvas[5][2]).toEqual(' ');
+    canvas.draw(testPoints)
+    expect(canvas.canvas[5][0]).toEqual('o');
+    expect(canvas.canvas[5][1]).toEqual('o');
+    expect(canvas.canvas[5][2]).toEqual('o');
 });

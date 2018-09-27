@@ -1,7 +1,7 @@
 const Point = require('./Point');
 
 class Line{
-    constructor(x1, y1, x2, y2, char){
+    constructor(x1, y1, x2, y2, colour){
         this.isVertical = false;
         this.isHorizontal = false;
         this.points = [];
@@ -9,10 +9,10 @@ class Line{
         this._checkOrientation(x1, y1, x2, y2);
         if (this.isVertical)
             for(var y = Math.min(y1, y2); y <= Math.max(y1, y2); y++)
-                this.points.push(new Point(x1, y, char))
+                this.points.push(new Point(x1, y, colour))
         else if (this.isHorizontal)
             for(var x = Math.min(x1, x2); x <= Math.max(x1, x2); x++)
-                this.points.push(new Point(x, y1, char))
+                this.points.push(new Point(x, y1, colour))
     }
 
     length(){

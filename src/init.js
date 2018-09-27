@@ -1,9 +1,9 @@
 const DrawingProgram = require('./Drawing_program');
 
 async function main() {
-    var dp = new DrawingProgram();
-    while(!dp.is_quit()){
-      await dp.commandInput();
+    var game = new DrawingProgram();
+    while(!game.do_quit()){
+      await game.commandInput();
     }
   }
   

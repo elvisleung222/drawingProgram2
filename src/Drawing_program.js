@@ -4,12 +4,13 @@ const Line = require('./Line');
 const Rectangle = require('./Rectangle');
 const Bucket = require('./Bucket');
 const Canvas = require('./Canvas');
+const Command = require('./Command');
 
 class DrawingProgram {
   constructor(){
     this.quit = false;
     this.canvas = null;
-    this.defaultChar = 'x';
+    this.history = [];
   }
 
   async commandInput() {
@@ -22,54 +23,32 @@ class DrawingProgram {
         try{
           this._processCommand(command.split(' '));
         }
-        catch(err){
-          console.log(err.message);
+        catch(error){
+          console.log(error);
         }
-        
         rl.close();
         resolve();
       });
     });
   }
 
-  is_quit(){
+  do_quit(){
     return this.quit;
   }
   
   _processCommand(cmd){
-    switch(cmd[0]){
-      case 'c':
-      case 'C':
-        this.canvas = new Canvas(parseInt(cmd[1]), parseInt(cmd[2]));
-        break;
-      case 'l':
-      case 'L':
-        var line = new Line(parseInt(cmd[1]), parseInt(cmd[2]), parseInt(cmd[3]), parseInt(cmd[4]), this.defaultChar);
-        this.canvas.draw(line.getPoints());
-        break;
-      case 'r':
-      case 'R':
-        var rectangle = new Rectangle(parseInt(cmd[1]), parseInt(cmd[2]), parseInt(cmd[3]), parseInt(cmd[4]), this.defaultChar);
-        this.canvas.draw(rectangle.getPoints());
-        break;
-      case 'b':
-      case 'B':
-        if (cmd[2] == this.defaultChar)
-          break;
-        var bucket = new Bucket(parseInt(cmd[1]), parseInt(cmd[2]), cmd[3], this.canvas);
-        this.canvas.draw(bucket.getPoints());
-        break;
-      case 'q':
-      case 'Q':
-        console.log('quit drawing program.');
-        this.quit = true;
-        break;
-      default:
-        console.log('error: wrong cmd');
+    const actionColour = cmd[0].toUpperCase();
+    if(actionColour == 'Q'){
+      console.log('quit drawing program.');
+      this.quit = true;
+      return;
+    }else{
+      var command = new Command(cmd, this.canvas);
+      this.canvas = command.render();
+      this.history.push(cmd);
     }
-    if (this.canvas != null && this.is_quit() != true)
+    if (this.canvas != null)
       this.canvas.print();
   }
 }
 module.exports = DrawingProgram;
-

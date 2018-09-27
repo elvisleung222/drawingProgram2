@@ -1,12 +1,9 @@
 {
     "scripts": {
         "test": "jest",
-        "start": "node ./src/Drawing_program.js"
+        "start": "node ./src/init.js"
     },
     "devDependencies": {
         "jest": "^23.6.0"
-    },
-    "dependencies": {
-        "test-console": "^1.1.0"
     }
 }

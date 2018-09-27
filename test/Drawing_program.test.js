@@ -1,32 +1,10 @@
-const DrawingProgram = require('../src/Drawing_program');
-// var stdout = require("test-console").stdout;
+const DrawingProgram = require("../src/Drawing_program");
+const Canvas = require("../src/Canvas");
+jest.mock('../src/Canvas');
 
-let outputData = "";
-storeLog = inputs => (outputData += inputs);
+
 test('xxx', () => {
-    return new Promise((resolve) => {
-        const outputString = [];
-        const process_output = (output) => {
-            outputString.push(output);
-        }
-    
-        const real_stdout  = process.stdout.write;
-        process.stdout.write = process_output;
-    
-        
-    
-        // console["log"] = jest.fn(storeLog);
-        const dp = new DrawingProgram();
-        // var output = 
-        
-        // stdout.inspectSync(function(output) {
-        // process.stdout.write("quit drawing program.");
-        dp._processCommand('q'.split(' '))
-        expect(outputString).toEqual("quit drawing program.");
-        resolve();
-    });
-
-    // });
-    // console.log(output)
-    
+    const dp = new DrawingProgram();
+    dp._processCommand('c 10 10'.split(' '));
+    expect(Canvas).toHaveBeenCalledWith(10,10);
 });

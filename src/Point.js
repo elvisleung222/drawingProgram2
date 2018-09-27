@@ -1,24 +1,24 @@
 class Point{
-    constructor(x, y, char){
-        this._validate(x, y, char);
+    constructor(x, y, colour){
+        this._validate(x, y, colour);
         this.x = x;
         this.y = y;
-        this.char = char;
+        this.colour = colour;
     }
 
     getPoint(){
         return this;
     }
 
-    _validate(x, y, char){
+    _validate(x, y, colour){
         if (x < 1)
             throw 'error: x cannot be zero or negative';
         if (y < 1)
             throw 'error: y cannot be zero or negative';
-        if (char.length > 1)
-            throw 'error: point can only contain a single character';
-        else if (char.length < 1)
-            throw 'error: point must contain a single character';
+        if (colour.length > 1)
+            throw 'error: point can only contain a single colouracter';
+        else if (colour.length < 1)
+            throw 'error: point must contain a single colouracter';
         return;
     }
 

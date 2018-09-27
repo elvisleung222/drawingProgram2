@@ -10,13 +10,12 @@ class Canvas{
     draw(points){
         if (points.length > 0)
             for(var i=0; i < points.length; i++){
-                this.canvas[parseInt(points[i].y)-1][parseInt(points[i].x)-1] = points[i].char;
+                this.canvas[parseInt(points[i].y)-1][parseInt(points[i].x)-1] = points[i].colour;
             }
     }
     
     print(){
         for(var i=-2; i < this.width; i++){
-            // process.stdout.write(i);
             process.stdout.write('-');
         }  
         process.stdout.write('\n');
@@ -28,7 +27,7 @@ class Canvas{
         }
         for(var i=-2; i < this.width; i++)
             process.stdout.write('-');
-        process.stdout.write('\n');
+        process.stdout.write('\n\n');
     }
     
     _validate(width, height){
@@ -49,5 +48,3 @@ class Canvas{
     }
 }
 module.exports = Canvas;
-// c = new Canvas(3, 5);
-// console.log(c);
