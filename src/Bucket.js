@@ -28,7 +28,7 @@ class Bucket{
         if (y > canvas.height)
             throw 'error: y is out of the range of Canvas';
         if (colour == undefined || colour.length != 1)
-            throw 'error: colour must be a single colouracter';
+            throw 'error: colour must be a single character';
     }
     
     _fillNeighbors(x,y){
@@ -53,16 +53,3 @@ class Bucket{
     }
 }
 module.exports = Bucket;
-// var c = new Canvas(5,5);
-// var l1 = new Line(4,1,4,2,'o');
-// var l2 = new Line(2,2,4,2,'o');
-// var l3 = new Line(3,3,3,5,'o');
-// c.draw(l1.getPoints());
-// c.print();
-// c.draw(l2.getPoints());
-// c.print();
-// c.draw(l3.getPoints());
-// c.print();
-// var b = new Bucket(3,2,'*',c);
-// c.draw(b.getPoints());
-// c.print();
