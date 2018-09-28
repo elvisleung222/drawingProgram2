@@ -1,20 +1,19 @@
 const Rectangle = require('../src/Rectangle');
-const Point = require('../src/Point');
 
 function testFourLines(tl, br){
     var rect = new Rectangle(tl.x, tl.y, br.x, br.y, 'o');
     // test top line
     for (var x = tl.x; x <= br.x; x++)
-        expect(new Point(x, tl.y, 'o')).toEqual(rect.topLine.getPoints()[x-tl.x]);
+        expect({x: x, y: tl.y, colour: 'o'}).toEqual(rect.topLine.getPoints()[x-tl.x]);
     // test bottom line
     for (var x = tl.x; x <= br.x; x++)
-        expect(new Point(x, br.y, 'o')).toEqual(rect.bottomLine.getPoints()[x-tl.x]);
+        expect({x: x, y: br.y, colour: 'o'}).toEqual(rect.bottomLine.getPoints()[x-tl.x]);
     // // test left line
     for (var y = br.y; y <= tl.y; y++)
-        expect(new Point(tl.x, y, 'o')).toEqual(rect.leftLine.getPoints()[y-br.y]);
+        expect({x: tl.x, y: y, colour: 'o'}).toEqual(rect.leftLine.getPoints()[y-br.y]);
     // // test right line
     for (var y = br.y; y <= tl.y; y++)
-        expect(new Point(br.x, y, 'o')).toEqual(rect.rightLine.getPoints()[y-br.y]);
+        expect({x: br.x, y: y, colour: 'o'}).toEqual(rect.rightLine.getPoints()[y-br.y]);
 }
 
 test('Accepts square (1,1), (2,2)', () => {

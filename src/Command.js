@@ -40,7 +40,7 @@ class Command{
     }
     
     _strToNumber(num){
-        if(Number.isInteger(parseInt(num)))
+        if(Number.isInteger(Number(num)))
             return parseInt(num);
         else
             throw 'error: ' + num + ' is not an integer';
@@ -82,6 +82,8 @@ class Command{
         const y1 = this._strToNumber(this.cmd[2]);
         const x2 = this._strToNumber(this.cmd[3]);
         const y2 = this._strToNumber(this.cmd[4]);
+        this._validate(x1, y1);
+        this._validate(x2, y2);
         let rectangle = new Rectangle(x1, y1, x2, y2, this.defaultColour);
         this.canvas.draw(rectangle.getPoints());
     }
@@ -93,6 +95,7 @@ class Command{
             throw 'error: no canvas exists';
         const x = this._strToNumber(this.cmd[1]);
         const y = this._strToNumber(this.cmd[2]);
+        this._validate(x, y);
         const colour = this.cmd[3]
         if (this.cmd[2] == this.defaultColour)
           return;
