@@ -1,4 +1,6 @@
 const Bucket = require("../src/Bucket");
+const Canvas = require("../src/Canvas");
+
 
 test('Bucket with y < 1 throws exception', () => {
     expect(() => {
@@ -46,7 +48,7 @@ test('Bucket with colour character != 1 throws exception', () => {
 
 test('Fills connected points accordingly', () => {
     const testCanvas = new Canvas(20, 4)
-    testCanvas.canvas = [
+    testCanvas.pointsArray = [
         [' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','x','x','x','x','x',' ',' '],
         ['x','x','x','x','x','x',' ',' ',' ',' ',' ',' ',' ','x',' ',' ',' ','x',' ',' '],
         [' ',' ',' ',' ',' ','x',' ',' ',' ',' ',' ',' ',' ','x','x','x','x','x',' ',' '],
@@ -54,7 +56,7 @@ test('Fills connected points accordingly', () => {
     
     const bucket = new Bucket(10, 3, 'o', testCanvas);
     testCanvas.draw(bucket.getPoints());
-    expect(testCanvas.canvas).toEqual([
+    expect(testCanvas.pointsArray).toEqual([
         ['o','o','o','o','o','o','o','o','o','o','o','o','o','x','x','x','x','x','o','o'],
         ['x','x','x','x','x','x','o','o','o','o','o','o','o','x',' ',' ',' ','x','o','o'],
         [' ',' ',' ',' ',' ','x','o','o','o','o','o','o','o','x','x','x','x','x','o','o'],

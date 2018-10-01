@@ -12,7 +12,7 @@ class DrawingProgram {
     this.canvas = null;
     this.history = [];
   }
-
+  // Public functions
   async commandInput() {
     const rl = readline.createInterface({
       input: process.stdin,
@@ -36,9 +36,9 @@ class DrawingProgram {
     return this.quit;
   }
   
+  // Helper functions
   _processCommand(cmd){
-    const actionColour = cmd[0].toUpperCase();
-    if(actionColour == 'Q'){
+    if(cmd[0].toUpperCase() == 'Q'){
       console.log('quit drawing program.');
       this.quit = true;
       return;

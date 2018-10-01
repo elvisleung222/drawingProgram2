@@ -6,10 +6,12 @@ class Point{
         this.colour = colour;
     }
 
+    // Public functions
     getPoint(){
         return this;
     }
 
+    // Helper functions
     _validate(x, y, colour){
         if (x < 1)
             throw 'error: x cannot be zero or negative';

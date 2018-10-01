@@ -8,6 +8,7 @@ class Rectangle{
         this.rightLine = new Line(x2, y1, x2, y2, colour)
     }
     
+    // Public functions
     getPoints(){
         return this.topLine.getPoints().concat(
             this.bottomLine.getPoints().concat(

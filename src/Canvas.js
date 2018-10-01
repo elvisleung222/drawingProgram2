@@ -3,14 +3,15 @@ class Canvas{
         this._validate(width, height);
         this.width = width;
         this.height = height;
-        this.canvas = [];
-        this._generateCanvas(width, height);
+        this.pointsArray = [];
+        this._generate(width, height);
     }
     
+    // Public functions
     draw(points){
         if (points.length > 0)
             for(var i=0; i < points.length; i++){
-                this.canvas[parseInt(points[i].y)-1][parseInt(points[i].x)-1] = points[i].colour;
+                this.pointsArray[parseInt(points[i].y)-1][parseInt(points[i].x)-1] = points[i].colour;
             }
     }
     
@@ -22,7 +23,7 @@ class Canvas{
         for(var row=0; row <this.height; row++){
             process.stdout.write('|');
             for(var col=0; col <this.width; col++)
-                process.stdout.write(this.canvas[row][col]);
+                process.stdout.write(this.pointsArray[row][col]);
             process.stdout.write('|\n');
         }
         for(var i=-2; i < this.width; i++)
@@ -30,6 +31,7 @@ class Canvas{
         process.stdout.write('\n\n');
     }
     
+    // Private functions
     _validate(width, height){
         if (width < 1)
             throw 'error: width must be greater than zero';
@@ -37,13 +39,13 @@ class Canvas{
             throw 'error: height must be greater than zero';
     }
     
-    _generateCanvas(width, height){
+    _generate(width, height){
         for (var i = 0; i < height; i++){
             var col = [];
             for (var j = 0; j < width; j++){
                 col.push(' ');
             }
-            this.canvas.push(col);
+            this.pointsArray.push(col);
         }
     }
 }

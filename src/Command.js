@@ -11,6 +11,7 @@ class Command{
         this.cmd = command;
     }
     
+    // Public functions
     render(){
         switch(this.cmd[0].toUpperCase()){
             case 'C':
@@ -32,6 +33,7 @@ class Command{
         return this.canvas;
     }
     
+    // Helper functions
     _validate(x, y){
         if(x < 1 || x > this.canvas.width)
             throw 'error: x is out of range of canvas';

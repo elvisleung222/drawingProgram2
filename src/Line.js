@@ -15,6 +15,7 @@ class Line{
                 this.points.push(new Point(x, y1, colour))
     }
 
+    //Public functions
     length(){
         return this.points.length - 1;
     }
@@ -23,6 +24,7 @@ class Line{
         return this.points;
     }
 
+    // Helper functions
     _validate(x1, y1, x2, y2){
         if (x1 != x2 && y1 != y2)
             throw 'error: line can only be either vertical or horizontal';
